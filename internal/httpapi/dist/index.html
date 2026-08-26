@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>青贮窖开窖检验工作台</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; color: #1f2933; }
+    h1 { font-size: 1.4rem; }
+    h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+    .card { border: 1px solid #cbd2d9; border-radius: 8px; padding: 1rem; margin-top: 1rem; max-width: 56rem; }
+    .row { display: flex; justify-content: space-between; padding: .35rem 0; border-bottom: 1px solid #e4e7eb; }
+    .row:last-child { border-bottom: none; }
+    code { background: #f1f5f9; padding: .1rem .35rem; border-radius: 4px; }
+    .badge { display: inline-block; padding: .1rem .5rem; border-radius: 999px; background: #e0f2fe; color: #075985; }
+    table { border-collapse: collapse; width: 100%; margin-top: .5rem; }
+    th, td { border: 1px solid #e4e7eb; padding: .3rem .5rem; font-size: .85rem; text-align: left; }
+    th { background: #f8fafc; }
+    button { margin: .25rem; padding: .3rem .6rem; cursor: pointer; }
+    .task { cursor: pointer; }
+    .task:hover { background: #f1f5f9; }
+  </style>
+</head>
+<body>
+  <h1>全株玉米青贮窖开窖检验工作台</h1>
+  <p>本页实时读取 Go 后端状态，可查看任务与三维采样格进度。</p>
+  <div class="card">
+    <div class="row"><span>服务状态</span><span class="badge" id="status">连接中…</span></div>
+    <div class="row"><span>任务数</span><code id="tasks">-</code></div>
+    <div class="row"><span>运行时长(ms)</span><code id="uptime">-</code></div>
+  </div>
+
+  <h2>任务列表</h2>
+  <div class="card">
+    <table id="task-table">
+      <thead><tr><th>ID</th><th>状态</th><th>代次</th></tr></thead>
+      <tbody id="task-body"><tr><td colspan="3">加载中…</td></tr></tbody>
+    </table>
+  </div>
+
+  <h2>任务快照</h2>
+  <div class="card" id="snapshot">点击上方任务查看三维采样格。</div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
